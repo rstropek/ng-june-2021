@@ -1,0 +1,31 @@
+<h2>User List</h2>
+
+<div>
+  <label for="nameFilter" class="form-label">Name filter</label>
+  <input type="text" class="form-control" id="nameFilter" name="nameFilter" placeholder="James"
+    [formControl]="userFilter">
+  <button type="button" class="btn btn-primary" (click)="onRefresh()">Refresh</button>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">IsAdmin</th>
+      <th scope="col">Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users | async">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.isAdmin }}</td>
+      <td>{{ user.phone }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div [hidden]="!hasError" class="alert alert-danger" role="alert">
+  There was an error!
+</div>

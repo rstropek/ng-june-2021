@@ -1,0 +1,25 @@
+GET https://localhost:5001/api/Users
+
+###
+GET https://localhost:5001/api/Users?q=James
+
+###
+POST https://localhost:5001/api/Users
+Content-Type: application/json
+
+{
+    "name": "Cat Woman",
+    "isAdmin": true,
+    "phone": "+1 345345345"
+}
+
+###
+DELETE https://localhost:5001/api/Users/b16a5c10-1332-4d8f-9fe0-eb5dd983f1eb
+
+###
+PATCH https://localhost:5001/api/Users/a41a6356-eff3-4a6e-9c77-7f0e690f8340
+Content-Type: application/json
+
+{
+    "phone": "4711"
+}

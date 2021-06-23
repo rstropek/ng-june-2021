@@ -1,0 +1,19 @@
+<h2>Todo Liste</h2>
+
+<input type="text" [(ngModel)]="newItem" />
+<button (click)="addItem()" [disabled]="!newItem">
+  Add
+</button>
+
+<ul *ngIf="repository.hasItems(); else noTodoItems">
+  <li *ngFor="let item of repository.getItems(); index as ix; even as e" [class.dangerousPirate]="e">
+    {{ item }} ({{ ix + 1 }})
+    <button (click)="deleteItem(ix)">❌</button>
+  </li>
+</ul>
+
+<ng-template #noTodoItems>
+  <p>
+    Nothing to do, enjoy the 😎
+  </p>
+</ng-template>
